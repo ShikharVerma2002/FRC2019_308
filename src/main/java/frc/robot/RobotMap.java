@@ -32,38 +32,6 @@ public class RobotMap {
 
   //Sensors
     //Chassis sensors
-  public static Gyro chassisGyro = new Gyro(){
-  
-    @Override
-    public void reset() {
-      
-    }
-  
-    @Override
-    public double getRate() {
-      return 0;
-    }
-  
-    @Override
-    public double getAngle() {
-      return 0;
-    }
-  
-    @Override
-    public void free() {
-      
-    }
-  
-    @Override
-    public void calibrate() {
-      
-    }
-
-    @Override
-    public void close() throws Exception {
-
-    }
-  };
 
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
