@@ -40,14 +40,10 @@ public class Chassis extends PIDSubsystem {
   public Chassis() {
     // Insert a subsystem name and PID values here
     super("Chassis", 1, 0.2, 0.3);
-    setAbsoluteTolerance(0.05);
-    getPIDController().setContinuous(true);
-    getPIDController().setSetpoint(forward);
-    getPIDController().enable();
-    // Use these to get going:
-    // setSetpoint() - Sets where the PID controller should move the system
-    // to
-    // enable() - Enables the PID controller.
+    //setAbsoluteTolerance(0.05);
+    //getPIDController().setContinuous(true);
+    //getPIDController().setSetpoint(forward);
+    //getPIDController().enable();
     //Shortcut push test
   }
 
@@ -66,7 +62,7 @@ public class Chassis extends PIDSubsystem {
     leftBack.follow(leftFront);
     rightBack.follow(rightFront);
 
-    leftBack.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+    // leftBack.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
   }
 
   public void drive(){
@@ -80,13 +76,13 @@ public class Chassis extends PIDSubsystem {
   protected double returnPIDInput() {
     // Return your input value for the PID loop
     // e.g. a sensor, like a potentiometer:
-    return leftFront.getSelectedSensorPosition();
+    // return leftFront.getSelectedSensorPosition();
   }
 
   @Override
   protected void usePIDOutput(double output) {
     // Use output to drive your system, like a motor
-    leftFront.pidWrite(output);
-    rightFront.pidWrite(output);
+    // leftFront.pidWrite(output);
+    // rightFront.pidWrite(output);
   }
 }
