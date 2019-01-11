@@ -77,6 +77,7 @@ public class Chassis extends PIDSubsystem {
     // Return your input value for the PID loop
     // e.g. a sensor, like a potentiometer:
     // return leftFront.getSelectedSensorPosition();
+    return 0.0;
   }
 
   @Override
