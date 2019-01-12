@@ -42,6 +42,6 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
-  public static XboxController driveController = new XboxController(1);
-  public static Joystick operator = new Joystick(2);
+  public static XboxController driveController = new XboxController(0);
+  public static Joystick operator = new Joystick(1);
 }

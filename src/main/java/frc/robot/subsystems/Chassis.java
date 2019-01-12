@@ -24,10 +24,10 @@ import frc.robot.OI;
  */
 public class Chassis extends PIDSubsystem {
 
-  public static WPI_TalonSRX leftFront;
-  public static WPI_TalonSRX rightFront;
-  public static WPI_TalonSRX leftBack;
-  public static WPI_TalonSRX rightBack;
+ public static WPI_TalonSRX leftFront = RobotMap.leftFrontMotor;
+ public static WPI_TalonSRX rightFront = RobotMap.rightFrontMotor;
+ public static WPI_TalonSRX leftBack = RobotMap.leftBackMotor;
+ public static WPI_TalonSRX rightBack = RobotMap.rightBackMotor;
 
   public static DifferentialDrive mainDrive = new DifferentialDrive(leftFront, rightFront);
 
@@ -54,20 +54,21 @@ public class Chassis extends PIDSubsystem {
   }
 
   public void setupdrive(){
-    leftFront = RobotMap.leftFrontMotor;
-    rightFront = RobotMap.rightFrontMotor;
-    leftBack = RobotMap.leftBackMotor;
-    rightBack = RobotMap.rightBackMotor;
 
     leftBack.follow(leftFront);
     rightBack.follow(rightFront);
+
+    leftFront.setInverted(false);
+    rightFront.setInverted(false);
+    leftBack.setInverted(false);
+    rightBack.setInverted(false);
 
     // leftBack.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
   }
 
   public void drive(){
     forward = OI.driveController.getRawAxis(1);
-    turn = OI.driveController.getRawAxis(2);
+    turn = OI.driveController.getRawAxis(4);
 
     mainDrive.arcadeDrive(forward, turn);
   }
