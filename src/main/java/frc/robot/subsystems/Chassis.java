@@ -32,7 +32,10 @@ public class Chassis extends PIDSubsystem {
   public static DifferentialDrive mainDrive = new DifferentialDrive(leftFront, rightFront);
 
   public static double forward;
+  public static double reverse;
   public static double turn;
+
+  public static boolean isHatchDirection = true;
 
   /**
    * Add your docs here.
@@ -67,10 +70,38 @@ public class Chassis extends PIDSubsystem {
   }
 
   public void drive(){
-    forward = OI.driveController.getRawAxis(1);
+    forward = OI.driveController.getRawAxis(2);
+    reverse = -OI.driveController.getRawAxis(3);
     turn = OI.driveController.getRawAxis(4);
 
-    mainDrive.arcadeDrive(forward, turn);
+    double x = 0;
+
+    if(OI.driveController.getRawButton(4) == true && isHatchDirection == false){
+      isHatchDirection = true;
+    }else if (OI.driveController.getRawButton(1) == true && isHatchDirection == true){
+      isHatchDirection = false;
+    }
+
+    if(isHatchDirection == true){
+      if(forward > 0){
+        x = forward;
+      }else if(reverse < 0){
+        x = reverse;
+      }else{
+        x = 0;
+      }
+    }else if(isHatchDirection == false){
+      if(forward > 0){
+        x = -forward;
+      }else if(reverse < 0){
+        x = -reverse;
+      }else{
+        x = 0;
+      }
+
+
+    }
+    mainDrive.arcadeDrive(x, turn);
   }
 
   @Override
