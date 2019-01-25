@@ -47,12 +47,9 @@ public class hatchGripper extends Subsystem {
     }else if(OI.driveController.getRawButton(3) == true && isOpen == true){
       gripperSolenoid.set(false);
       isOpen = false;
-    }
-
-    if(isOpen == true && gripperSwitch1.get() == false && gripperSwitch2.get() == false){
+    }else if(OI.driveController.getRawButton(2) == false && isOpen == true && gripperSwitch1.get() == false && gripperSwitch2.get() == false){
       gripperSolenoid.set(false);
       isOpen = false;
-
     }
 
     if(gripperSwitch1.get() == false){

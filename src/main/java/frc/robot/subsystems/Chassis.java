@@ -24,18 +24,19 @@ import frc.robot.OI;
  */
 public class Chassis extends PIDSubsystem {
 
+  //import motor objects from RobotMap
  public static WPI_TalonSRX leftFront = RobotMap.leftFrontMotor;
  public static WPI_TalonSRX rightFront = RobotMap.rightFrontMotor;
  public static WPI_TalonSRX leftBack = RobotMap.leftBackMotor;
  public static WPI_TalonSRX rightBack = RobotMap.rightBackMotor;
 
+  //"Arcade Drive" object
   public static DifferentialDrive mainDrive = new DifferentialDrive(leftFront, rightFront);
 
+  //store joystick values to pass to mainDrive
   public static double forward;
   public static double reverse;
   public static double turn;
-
-  public static boolean isHatchDirection = true;
 
   /**
    * Add your docs here.
