@@ -68,6 +68,7 @@ public class Chassis extends PIDSubsystem {
 
     // leftBack.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
   }
+  
 
   public void drive(){
     //RobotMap.compressor.
@@ -84,7 +85,7 @@ public class Chassis extends PIDSubsystem {
       isHatchDirection = false;
     }
 
-    if(isHatchDirection == true){
+    //if(isHatchDirection == true){
       if(forward > 0){
         x = forward;
       }else if(reverse < 0){
@@ -92,7 +93,7 @@ public class Chassis extends PIDSubsystem {
       }else{
         x = 0;
       }
-    }else if(isHatchDirection == false){
+   // }else if(isHatchDirection == false){
       if(forward > 0){
         x = -forward;
       }else if(reverse < 0){
@@ -102,7 +103,7 @@ public class Chassis extends PIDSubsystem {
       }
 
 
-    }
+    //}
     mainDrive.arcadeDrive(x, turn);
   }
 

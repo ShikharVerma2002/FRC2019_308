@@ -9,8 +9,11 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.can.*;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 /**
@@ -22,6 +25,7 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
 public class RobotMap {
 
   public static Compressor compressor = new Compressor();
+  public static Solenoid gripperSolenoid = new Solenoid(0);
 
   //Motors
     //Drive Motors
@@ -37,6 +41,10 @@ public class RobotMap {
   //Sensors
     //Chassis sensors
 
+    //Gripper sensors
+
+  public static DigitalInput gripperSwitch1 = new DigitalInput(0);
+  public static DigitalInput gripperSwitch2 = new DigitalInput(1);
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
