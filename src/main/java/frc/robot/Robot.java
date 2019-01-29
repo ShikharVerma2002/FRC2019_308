@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -23,6 +24,8 @@ import frc.robot.subsystems.*;
  * project.
  */
 public class Robot extends TimedRobot {
+  public int testLoop = 0;
+
   public static filler_auto auto = new filler_auto();
   public static OI oi;
   public static Chassis chassis;
@@ -124,6 +127,11 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    
+    if(testLoop++ > 100){
+    CameraServer.getInstance().startAutomaticCapture();
+    testLoop = 0;
+  }
   }
 
   /**

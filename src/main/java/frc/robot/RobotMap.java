@@ -25,8 +25,8 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
 public class RobotMap {
 
   //Pneumatic Modules
-  public static Compressor compressor = new Compressor();
-  public static Solenoid gripperSolenoid = new Solenoid(0);
+  //public static Compressor compressor = new Compressor();
+  //public static Solenoid gripperSolenoid = new Solenoid(0);
 
   //Motors
     //Drive Motors
@@ -43,8 +43,8 @@ public class RobotMap {
     //Chassis sensors
 
     //Gripper sensors
-  public static DigitalInput gripperSwitch1 = new DigitalInput(0);
-  public static DigitalInput gripperSwitch2 = new DigitalInput(1);
+  //public static DigitalInput gripperSwitch1 = new DigitalInput(0);
+  //public static DigitalInput gripperSwitch2 = new DigitalInput(1);
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;

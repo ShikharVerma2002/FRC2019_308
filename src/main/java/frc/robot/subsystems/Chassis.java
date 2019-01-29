@@ -80,11 +80,11 @@ public class Chassis extends PIDSubsystem {
 
     double x = 0;
 
-    if(OI.driveController.getRawButton(4) == true && isHatchDirection == false){
-      isHatchDirection = true;
-    }else if (OI.driveController.getRawButton(1) == true && isHatchDirection == true){
-      isHatchDirection = false;
-    }
+    //if(OI.driveController.getRawButton(4) == true && isHatchDirection == false){
+      //isHatchDirection = true;
+    //}else if (OI.driveController.getRawButton(1) == true && isHatchDirection == true){
+      //isHatchDirection = false;
+    //}
 
     //if(isHatchDirection == true){
       if(forward > 0){
