@@ -9,12 +9,10 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.can.*;
 
-import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -24,34 +22,49 @@ import edu.wpi.first.wpilibj.interfaces.Gyro;
  */
 public class RobotMap {
 
-  //Pneumatic Modules
-  //public static Compressor compressor = new Compressor();
-  //public static Solenoid gripperSolenoid = new Solenoid(0);
+  //Motors:
 
-  //Motors
     //Drive Motors
   public static WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(0);
   public static WPI_TalonSRX rightFrontMotor = new WPI_TalonSRX(1);
   public static WPI_TalonSRX leftBackMotor = new WPI_TalonSRX(2);
   public static WPI_TalonSRX rightBackMotor = new WPI_TalonSRX(3);
 
-    //Intake Motors
+    //Cargo Delivery Motors
+  public static WPI_TalonSRX cargoIntakeMotor  = new WPI_TalonSRX(4);
 
-    //Delivery mechanism motors
+    //Lift Motors
+  public static WPI_TalonSRX liftMotor1 = new WPI_TalonSRX(5);
+  public static WPI_TalonSRX liftMotor2 = new WPI_TalonSRX(6);
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-  //Sensors
-    //Chassis sensors
+  //Sensors:
+  
+    //Chassis Sensors
+  public static ADXRS450_Gyro gyro = new ADXRS450_Gyro();
 
-    //Gripper sensors
-  //public static DigitalInput gripperSwitch1 = new DigitalInput(0);
-  //public static DigitalInput gripperSwitch2 = new DigitalInput(1);
-  // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
+    //Gripper Sensors
+  public static DigitalInput gripperSwitch1 = new DigitalInput(0);
+  public static DigitalInput gripperSwitch2 = new DigitalInput(1);
 
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
+    //Lift Sensors
+  public static DigitalInput bottomLiftSwitch = new DigitalInput(2);
+  public static DigitalInput middleLiftSwitch = new DigitalInput(3);
+  public static DigitalInput topLiftSwitch = new DigitalInput(4);
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+  //Pnuematics:
+  public static Compressor compressor = new Compressor();
+
+    //Gripper Solenoids
+  public static Solenoid gripperSolenoid = new Solenoid(0); 
+
+    //Hab Climber Solenoids
+  public static Solenoid frontClimberSolenoid = new Solenoid(1);
+  public static Solenoid backClimberSolenoid = new Solenoid(2);
+
+    //Cargo Delivery Solenoids
+  public static Solenoid deliveryArmSolenoid = new Solenoid(3);
+//////////////////////////////////////////////////////////////////////////////////////////////      
+
 }

@@ -17,13 +17,13 @@ import frc.robot.commands.teleop_gripper;
 /**
  * Add your docs here.
  */
-public class hatchGripper extends Subsystem {
+public class HatchGripper extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  //public static Solenoid gripperSolenoid;
-  //public static DigitalInput gripperSwitch1;
-  //public static DigitalInput gripperSwitch2;
+  public static Solenoid gripperSolenoid;
+  public static DigitalInput gripperSwitch1;
+  public static DigitalInput gripperSwitch2;
   public static boolean isOpen = false;
   public static boolean hasHatch = false;
 
@@ -34,48 +34,41 @@ public class hatchGripper extends Subsystem {
   }
 
   public void setupGripper(){
-  //  gripperSolenoid = RobotMap.gripperSolenoid;
-    //gripperSolenoid.set(false);
-    //gripperSwitch1 = RobotMap.gripperSwitch1;
-    //gripperSwitch2 = RobotMap.gripperSwitch2;
+    gripperSolenoid = RobotMap.gripperSolenoid;
+    gripperSolenoid.set(false);
+    gripperSwitch1 = RobotMap.gripperSwitch1;
+    gripperSwitch2 = RobotMap.gripperSwitch2;
     isOpen = false;
   }
 
   public void controlGripper(){
+    boolean gripperSwitch1State = gripperSwitch1.get();
+    boolean gripperSwitch2State = gripperSwitch2.get();
 
-    //if(gripperSwitch1.get() == false && gripperSwitch2.get() == false && isOpen == false){
-      //hasHatch = true;
-    //}else if(gripperSwitch1.get() == true && gripperSwitch2.get() == true && isOpen == true){
-      //hasHatch = false;
-    //}
+    if(gripperSwitch1State == false && gripperSwitch2State == false && isOpen == false){
+      hasHatch = true;
+    }else if(gripperSwitch1State == true && gripperSwitch2State == true && isOpen == true){
+      hasHatch = false;
+    }
 
-    //if(hasHatch == false && isOpen == true){
-      //if(OI.driveController.getRawButton(2) == true || (gripperSwitch1.get() == false && gripperSwitch2.get() == false)){
-        //gripperSolenoid.set(false);
-        //isOpen = false;
-      //}
+    if(hasHatch == false && isOpen == true){
+      if(OI.operator.getRawButton(2) == true || (gripperSwitch1State == false && gripperSwitch2State == false)){
+        gripperSolenoid.set(false);
+        isOpen = false;
+      }
 
-    //}else if(hasHatch == true && isOpen == false){
-      //if(OI.driveController.getRawButton(3) == true){
-        //gripperSolenoid.set(true);
-        //isOpen = true;
-      //}
-    //}else if(hasHatch == false && isOpen == false){
-     //if(OI.driveController.getRawButton(3) == true){
-       //gripperSolenoid.set(true);
-        //isOpen = true;
-      //}
-    //}
-
-    System.out.println(hasHatch);
-    //if(gripperSwitch1.get() == false){
-      //System.out.println("Switch 1 Pressed");
-    //}
-    
-    //if(gripperSwitch2.get() == false){
-      //System.out.println("Switch 2 Pressed");
-    //}
-      
+    }else if(hasHatch == true && isOpen == false){
+      if(OI.operator.getRawButton(3) == true){
+        gripperSolenoid.set(true);
+        isOpen = true;
+      }
+    }else if(hasHatch == false && isOpen == false){
+     if(OI.operator.getRawButton(3) == true){
+       gripperSolenoid.set(true);
+        isOpen = true;
+      }
+    }
+    System.out.println("hasHatch: " + hasHatch);
   }
 
 

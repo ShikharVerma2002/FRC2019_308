@@ -29,7 +29,11 @@ public class Robot extends TimedRobot {
   public static filler_auto auto = new filler_auto();
   public static OI oi;
   public static Chassis chassis;
-  public static hatchGripper gripper;
+  public static HatchGripper gripper;
+  public static CargoDelivery cargodelivery;
+  public static HabClimber habclimber;
+  public static Lift lift;
+
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -42,7 +46,11 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     chassis = new Chassis();
     oi = new OI();
-    gripper  = new hatchGripper();
+    gripper  = new HatchGripper();
+    lift  = new Lift();
+    cargodelivery = new CargoDelivery();
+    habclimber = new HabClimber();
+
     m_chooser.addDefault("Default Auto", new filler_auto());
     // chooser.addObject("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);

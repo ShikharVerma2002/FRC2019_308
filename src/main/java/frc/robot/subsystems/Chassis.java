@@ -7,15 +7,10 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.commands.teleop_drive;
-
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.OI;
 
@@ -44,11 +39,6 @@ public class Chassis extends PIDSubsystem {
   public Chassis() {
     // Insert a subsystem name and PID values here
     super("Chassis", 1, 0.2, 0.3);
-    //setAbsoluteTolerance(0.05);
-    //getPIDController().setContinuous(true);
-    //getPIDController().setSetpoint(forward);
-    //getPIDController().enable();
-    //Shortcut push test
   }
 
   @Override
@@ -67,7 +57,6 @@ public class Chassis extends PIDSubsystem {
     leftBack.setInverted(false);
     rightBack.setInverted(false);
 
-    // leftBack.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
   }
   
 
@@ -80,13 +69,6 @@ public class Chassis extends PIDSubsystem {
 
     double x = 0;
 
-    //if(OI.driveController.getRawButton(4) == true && isHatchDirection == false){
-      //isHatchDirection = true;
-    //}else if (OI.driveController.getRawButton(1) == true && isHatchDirection == true){
-      //isHatchDirection = false;
-    //}
-
-    //if(isHatchDirection == true){
       if(forward > 0){
         x = forward;
       }else if(reverse < 0){
@@ -94,7 +76,7 @@ public class Chassis extends PIDSubsystem {
       }else{
         x = 0;
       }
-   // }else if(isHatchDirection == false){
+
       if(forward > 0){
         x = -forward;
       }else if(reverse < 0){
