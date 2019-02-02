@@ -76,7 +76,7 @@ public void getLiftStates(){
   public void controlLift(){
     if(isTop == false && OI.operator.getRawButton(4) == true){
       liftMotor1.set(1.0);
-    }else if(isDown == false && OI.operator.getRawButton(5) == true){
+    }else if(isDown == false && OI.operator.getRawButton(2) == true){
       liftMotor1.set(-1.0);
     }else{
       liftMotor1.set(0.0);

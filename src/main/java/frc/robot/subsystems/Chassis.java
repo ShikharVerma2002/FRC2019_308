@@ -65,7 +65,7 @@ public class Chassis extends PIDSubsystem {
 
     forward = OI.driveController.getRawAxis(2);
     reverse = -OI.driveController.getRawAxis(3);
-    turn = OI.driveController.getRawAxis(4);
+    turn = OI.driveController.getRawAxis(0);
 
     double x = 0;
 
