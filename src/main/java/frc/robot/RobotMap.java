@@ -54,17 +54,17 @@ public class RobotMap {
 //////////////////////////////////////////////////////////////////////////////////////////////
 
   //Pnuematics:
-  public static Compressor compressor = new Compressor();
+  public static Compressor compressor = new Compressor(7);
 
     //Gripper Solenoids
-  public static Solenoid gripperSolenoid = new Solenoid(0); 
+  public static Solenoid gripperSolenoid = new Solenoid(7,0); 
 
     //Hab Climber Solenoids
-  public static Solenoid frontClimberSolenoid = new Solenoid(1);
-  public static Solenoid backClimberSolenoid = new Solenoid(2);
+  public static Solenoid frontClimberSolenoid = new Solenoid(7,1);
+  public static Solenoid backClimberSolenoid = new Solenoid(7,2);
 
     //Cargo Delivery Solenoids
-  public static Solenoid deliveryArmSolenoid = new Solenoid(3);
+  public static Solenoid deliveryArmSolenoid = new Solenoid(7,3);
 //////////////////////////////////////////////////////////////////////////////////////////////      
 
 }
