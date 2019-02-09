@@ -106,13 +106,21 @@ public void setTargetState(){
        liftMotor1.set(0.0);
      }
 
-    // if(targetState > liftState){
-      // liftMotor1.set(1.0);
-    // }else if(targetState < liftState){
-      // liftMotor1.set(-1.0);
-    // }else if(targetState == liftState){
-      // liftMotor1.set(0.0);
-    // }
+    //  if(targetState > liftState){
+      //  liftMotor1.set(1.0);
+    //  }else if(targetState < liftState){
+      //  liftMotor1.set(-1.0);
+    //  }else if(targetState == liftState){
+      //  liftMotor1.set(0.0);
+    //  }else if(targetState == 3 && liftState == 3 && isTop == false){
+      //  liftMotor1.set(1.0);
+    //  }else if(targetState == 2 && liftState == 2 && isMid == false && liftMotor1.get() > 0){
+      //  liftMotor1.set(-1.0);
+    //  }else if(targetState == 2 && liftState == 2 && isMid == false && liftMotor1.get() < 0){
+      //  liftMotor1.set(1.0);
+    //  }else  if(targetState == 1 && liftState == 1 && isDown == false){
+      //  liftMotor1.set(-1.0);
+    //  }
   }
 
   @Override
