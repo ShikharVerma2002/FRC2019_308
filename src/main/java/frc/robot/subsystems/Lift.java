@@ -31,6 +31,8 @@ public static DigitalInput topLiftSwitch;
 public static boolean isDown;
 public static boolean isMid;
 public static boolean isTop;
+public static int targetState;
+public static int liftState;
   
   public Lift() {
     // Intert a subsystem name and PID values here
@@ -57,30 +59,60 @@ public static boolean isTop;
     isDown = true;
     isMid = false;
     isTop = false;
+
+    targetState = 0;
+    liftState = 0;
   }
 
 public void getLiftStates(){
   if(bottomLiftSwitch.get() == false){
     isDown = true;
+    liftState = 0;
   }else{
     isDown = false;
   }
 
+if(bottomLiftSwitch.get() == false){
+  isMid = true;
+  liftState = 1;
+}else{
+  isMid = false;
+}
+
   if(topLiftSwitch.get() == false){
     isTop = true;
+    liftState = 2;
   }else{
     isTop = false;
   }
 }
 
+public void setTargetState(){
+  if(OI.operator.getRawButton(4) == true){
+    targetState = 2;
+  }else if(OI.operator.getRawButton(3) == true){
+    targetState = 1;
+  }else if(OI.operator.getRawButton(1) == true){
+    targetState = 0;
+  }
+}
+
   public void controlLift(){
-    if(isTop == false && OI.operator.getRawButton(4) == true){
-      liftMotor1.set(1.0);
-    }else if(isDown == false && OI.operator.getRawButton(2) == true){
+     if(OI.operator.getRawButton(4) == true){
+       liftMotor1.set(1.0);
+     }else if(OI.operator.getRawButton(2) == true){
       liftMotor1.set(-1.0);
-    }else{
-      liftMotor1.set(0.0);
-    }
+     }else{
+       liftMotor1.set(0.0);
+     }
+
+    // if(targetState > liftState){
+      // liftMotor1.set(1.0);
+    // }else if(targetState < liftState){
+      // liftMotor1.set(-1.0);
+    // }else if(targetState == liftState){
+      // liftMotor1.set(0.0);
+    // }
   }
 
   @Override
